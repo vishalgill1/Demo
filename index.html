@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FF Tournament - Download App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif;}
+        body { background:#0a0a0a; color:#fff; overflow-x:hidden; }
+
+        a { text-decoration:none; color:inherit; }
+        button { cursor:pointer; font-family:'Press Start 2P', cursive; }
+
+        /* Particle background */
+        canvas#particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; }
+
+        /* Hero Section */
+        .hero {
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            position:relative;
+            z-index:1;
+        }
+        .hero h1 { font-family:'Press Start 2P', cursive; font-size:2.2rem; color:#00f0ff; text-shadow:0 0 10px #00f0ff; margin-bottom:20px; }
+        .hero p { font-size:1.2rem; margin-bottom:30px; color:#fff; text-shadow:0 0 5px #00f0ff; }
+        .hero .btn-group button {
+            background:transparent; border:2px solid #00f0ff; color:#00f0ff; padding:15px 30px; margin:10px; border-radius:8px;
+            font-weight:bold; transition:0.3s; text-shadow:0 0 5px #00f0ff;
+        }
+        .hero .btn-group button:hover {
+            background:#00f0ff; color:#000; box-shadow:0 0 20px #00f0ff, 0 0 40px #00f0ff inset;
+        }
+
+        /* Sections */
+        section { padding:80px 20px; max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+        h2 { font-family:'Press Start 2P', cursive; font-size:1.5rem; color:#00f0ff; margin-bottom:30px; text-align:center; text-shadow:0 0 5px #00f0ff; }
+
+        /* Features */
+        .features { display:flex; flex-wrap:wrap; justify-content:space-around; }
+        .feature-card {
+            background:#111; padding:20px; border-radius:12px; margin:15px; flex:1 1 200px; text-align:center;
+            transition:0.3s; border:1px solid #00f0ff; box-shadow:0 0 10px #00f0ff inset;
+        }
+        .feature-card:hover { transform:scale(1.05); box-shadow:0 0 20px #00f0ff; }
+
+        /* Screenshots */
+        .screenshots { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+        .screenshots img { width:250px; border-radius:12px; border:2px solid #00f0ff; box-shadow:0 0 15px #00f0ff; }
+
+        /* Tournament Cards */
+        .tournaments { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+        .tournament-card {
+            background:#111; padding:20px; border-radius:12px; border:1px solid #00f0ff; width:250px; text-align:center; transition:0.3s; box-shadow:0 0 10px #00f0ff inset;
+        }
+        .tournament-card:hover { transform:scale(1.05); box-shadow:0 0 20px #00f0ff; }
+        .tournament-card button {
+            background:#00f0ff; color:#000; border:none; padding:10px 20px; border-radius:8px; margin-top:10px; font-weight:bold;
+            box-shadow:0 0 10px #00f0ff;
+        }
+
+        /* Live players counter */
+        .live-counter { text-align:center; font-size:1.2rem; color:#00ff85; text-shadow:0 0 10px #00ff85; margin-top:20px; }
+
+        /* Footer */
+        footer { background:#111; text-align:center; padding:40px 20px; border-top:2px solid #00f0ff; text-shadow:0 0 5px #00f0ff; }
+        footer a { color:#00f0ff; }
+
+        /* Responsive */
+        @media(max-width:768px){
+            .features { flex-direction:column; align-items:center; }
+            .screenshots img { width:80%; }
+            .tournaments { flex-direction:column; align-items:center; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>FF Tournament</h1>
+    <p>Join Battles, Win Rewards! Download the official Free Fire Tournament App now.</p>
+    <div class="btn-group">
+        <button onclick="window.location.href='https://example.com/FFTournament.apk'">Download App</button>
+        <button onclick="window.open('https://wa.me/9518692138','_blank')">WhatsApp Join</button>
+    </div>
+    <div class="live-counter">Live Players: <span id="playerCount">10234</span></div>
+</section>
+
+<!-- Features Section -->
+<section id="features">
+    <h2>App Features</h2>
+    <div class="features">
+        <div class="feature-card"><h3>Easy Registration</h3><p>Register in seconds and start playing.</p></div>
+        <div class="feature-card"><h3>Live Match Status</h3><p>Check real-time updates of your tournaments.</p></div>
+        <div class="feature-card"><h3>Secure Payments</h3><p>Pay entry fees safely & quickly.</p></div>
+        <div class="feature-card"><h3>24/7 Support</h3><p>Our team is always ready to help you.</p></div>
+    </div>
+</section>
+
+<!-- Screenshots Section -->
+<section id="screenshots">
+    <h2>App Screenshots</h2>
+    <div class="screenshots">
+        <img src="https://images.unsplash.com/photo-1618373394721-0eb8420b8c09?auto=format&fit=crop&w=400&q=60" alt="Screenshot 1">
+        <img src="https://images.unsplash.com/photo-1618373394721-0eb8420b8c09?auto=format&fit=crop&w=400&q=60" alt="Screenshot 2">
+        <img src="https://images.unsplash.com/photo-1618373394721-0eb8420b8c09?auto=format&fit=crop&w=400&q=60" alt="Screenshot 3">
+    </div>
+</section>
+
+<!-- Tournaments Section -->
+<section id="tournaments">
+    <h2>Upcoming Tournaments</h2>
+    <div class="tournaments">
+        <div class="tournament-card">
+            <h3>Battle Royale 1</h3><p>Entry Fee: ₹50<br>Prize: ₹5000</p><button>Join Now</button>
+        </div>
+        <div class="tournament-card">
+            <h3>Solo Clash</h3><p>Entry Fee: ₹30<br>Prize: ₹3000</p><button>Join Now</button>
+        </div>
+        <div class="tournament-card">
+            <h3>Team Wars</h3><p>Entry Fee: ₹100<br>Prize: ₹10000</p><button>Join Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <h2>About FF Tournament App</h2>
+    <p>The FF Tournament app connects thousands of Free Fire players across India. Participate in live tournaments, win prizes, and enjoy a secure gaming experience. Trusted by 10,000+ gamers!</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Contact us: <a href="https://wa.me/9518692138">WhatsApp</a> | All Rights Reserved © 2025 Game Adda</p>
+</footer>
+
+<script>
+    // Live players counter animation
+    let count = 10234;
+    setInterval(() => {
+        count += Math.floor(Math.random()*5);
+        document.getElementById('playerCount').innerText = count;
+    }, 2000);
+
+    // Particle background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
+    class Particle {
+        constructor(){
+            this.x = Math.random()*canvas.width;
+            this.y = Math.random()*canvas.height;
+            this.size = Math.random()*2+1;
+            this.speedX = Math.random()*1-0.5;
+            this.speedY = Math.random()*1-0.5;
+        }
+        update(){ this.x += this.speedX; this.y += this.speedY; if(this.x<0)this.x=canvas.width;if(this.x>canvas.width)this.x=0;if(this.y<0)this.y=canvas.height;if(this.y>canvas.height)this.y=0; }
+        draw(){ ctx.fillStyle='#00f0ff'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+    }
+    for(let i=0;i<150;i++){ particles.push(new Particle()); }
+    function animate(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach(p=>{ p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+    animate();
+    window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+</script>
+
+</body>
+</html>
